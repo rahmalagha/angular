@@ -1,0 +1,17 @@
+<!-- <div *ngFor="let residence of listResidence ">
+    <li>{{residence.adress}}</li>
+</div> -->
+<div *ngfor ="let residence of listResidences ; let i index ">
+<h3>{{residence.name}}</h3>
+<!-- <p>status :{{residence.status}}</p> -->
+<button (click)="ShowLocation(residence)">ShowLocation </button>
+<div *ngIf =" visibility "> {{residence.adress}}</div> 
+</div>
+
+<h2>Liste des Résidences</h2>
+<ul>
+  <li *ngFor="let residence of residences">
+    {{ residence.name }} - {{ residence.location }}
+    <button (click)="goToDetails(residence.id)">Voir Détails</button>
+  </li>
+</ul>

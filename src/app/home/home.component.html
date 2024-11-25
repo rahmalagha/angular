@@ -1,0 +1,30 @@
+<!-- <p>home works!</p>
+<div>Welcoming : {{Var1}}</div>
+<div>  bending :</div><img height="120px" [src]="var2" alt="angularpic">
+<div>event binding :<button (click)="function1()">Click me </button></div>
+twoWay databinding :<input type="test" [(ngModel)]="var3">
+<div>var3: {{var3}}</div>
+<div *ngIf="Var1 else template " >
+<h6>bonjourrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</h6>
+</div>
+<ng-template #template >bonsoir </ng-template> reference 
+<ul>
+    <li>{{List[0]}}</li>
+    <li>{{List[0]}}</li>
+</ul>
+
+<ul *ngFor="let item of List">
+    <li>{{item}}</li>
+</ul> -->
+
+<h2>Liste des Résidences</h2>
+<ul>
+  <li *ngFor="let residence of residences; let i = index">
+    {{ residence.name }}
+    <button [routerLink]="['/residence-details', i]">Voir Détails</button>
+  </li>
+</ul>
+
+
+
+
