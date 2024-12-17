@@ -5,12 +5,15 @@ import { ResidencesComponent } from './Residences/residences/residences.componen
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { ResidenceDetailsComponentComponent } from './Residences/residence-details-component/residence-details-component.component';
 import { AddResidenceComponentComponent } from './Residences/add-residence-component/add-residence-component.component';
+import { ApartmentsComponentComponent } from './Appartement/apartments-component/apartments-component.component';
 
 const routes: Routes = [
   
   { path: 'home', component: HomeComponent },
   { path: 'residences', component: ResidencesComponent },
   { path: 'residence-details/:id', component: ResidenceDetailsComponentComponent },
+  { path: 'Apartement', component:ApartmentsComponentComponent},
+  { path:'Appartement' , component:AddResidenceComponentComponent},
   { path: 'add-residence/:id', component:AddResidenceComponentComponent} ,
   { path: '**', component: NotFoundComponentComponent } 
 ];

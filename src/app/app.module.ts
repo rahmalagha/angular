@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResidencesComponent } from './Residences/residences/residences.component';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { ApartmentsComponentComponent } from './Appartement/apartments-component/apartments-component.component';
@@ -36,7 +36,8 @@ import { AddResidenceComponentComponent } from './Residences/add-residence-compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,12 @@
-<!-- <div *ngFor="let residence of listResidence ">
+ <!-- <div *ngFor="let residence of listResidence ">
     <li>{{residence.adress}}</li>
-</div> -->
+</div> 
 <div *ngfor ="let residence of listResidences ; let i index ">
 <h3>{{residence.name}}</h3>
-<!-- <p>status :{{residence.status}}</p> -->
+ <p>status :{{residence.status}}</p> 
 <button (click)="ShowLocation(residence)">ShowLocation </button>
 <div *ngIf =" visibility "> {{residence.adress}}</div> 
-</div>
+</div> 
 
 <h2>Liste des Résidences</h2>
 <ul>
@@ -14,4 +14,76 @@
     {{ residence.name }} - {{ residence.location }}
     <button (click)="goToDetails(residence.id)">Voir Détails</button>
   </li>
-</ul>
+</ul> 
+<h1 class="text-center my-4">List of Residences</h1> 
+<input [(ngModel)]="searchItem">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let residence of listResidences" >
+       <ng-container *ngIf="searchItem || searchItem === 'residence.adress'" class="card h-100">
+        <img [src]="residence.image" class="card-img-top img-fluid" alt="{{residence.name}} image" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ residence.name }}</h5>
+          <p class="card-text"><small class="text-muted">Status: {{ residence.status }}</small></p>
+          <div [ngSwitch]="residence.status">
+            <li *ngSwitchCase="'Disponible'" style="color: green;">Disponible</li>
+            <li *ngSwitchCase="'Vendu'" style="color:red;">Vendu</li>
+            <li *ngSwitchCase="'En Construction'" style="color:yellow">En Construction</li>
+          </div>
+          <div> <button (click)="showLocation(residence)" class="btn btn-primary">Show Location</button>
+          <span *ngIf="visiblity && residence.name===vv "> {{residence.address}}</span></div>
+           <button class="btn btn-danger">Like</button>
+        </div>
+      </ng-container> 
+
+    </div>
+  </div>
+</div>   -->
+<!-- appel () et creation du formulaire  
+<form [FormGroup]="addFormUser">
+  <label for="">Username</label>
+  <input type ="text" formControlName ="Username">
+  <span *ngIf ="addFormUser.get('Username')?.invalid && addFormUser.get('Username')?.touched ">Username invalid</span>
+  <button type ="submit">add</button>
+</form>
+
+addUser (){
+  const newuser =this.addFormUser.value;
+  console.log("new user  :",newuser);
+}  -->
+
+
+<div>
+  <!-- Input de recherche -->
+  <input
+    type="text"
+    placeholder="Rechercher par adresse..."
+    [(ngModel)]="searchText"
+  />
+
+  <!-- Liste des résidences -->
+  <div *ngFor="let residence of listResidences">
+    <div *ngIf="residence.address.includes(searchText)">
+      <h3>{{ residence.name }}</h3>
+      <img [src]="residence.image" alt="{{ residence.name }}" width="200px" />
+      <p>Status : {{ residence.status }}</p>
+
+      <!-- Affichage du statut avec icônes -->
+      <span *ngIf="residence.status === 'Disponible'">✅ Disponible</span>
+      <span *ngIf="residence.status === 'Vendu'">❌ Vendu</span>
+      <span *ngIf="residence.status === 'En Construction'">🚧 En Construction</span>
+
+      <!-- Bouton Show Location -->
+      <button (click)="showLocation(residence)">Show Location</button>
+
+      <!-- Bouton Like -->
+      <button (click)="addToFavorites(residence)">Like ❤️</button>
+    </div>
+  </div>
+
+  <!-- Résidences favorites -->
+  <h2>Favoris :</h2>
+  <ul>
+    <li *ngFor="let fav of favorites">{{ fav.name }}</li>
+  </ul>
+</div>
