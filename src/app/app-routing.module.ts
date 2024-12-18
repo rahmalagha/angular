@@ -6,6 +6,7 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
 import { ResidenceDetailsComponentComponent } from './Residences/residence-details-component/residence-details-component.component';
 import { AddResidenceComponentComponent } from './Residences/add-residence-component/add-residence-component.component';
 import { ApartmentsComponentComponent } from './Appartement/apartments-component/apartments-component.component';
+import { AddApartmentComponentComponent } from './Appartement/add-apartment-component/add-apartment-component.component';
 
 const routes: Routes = [
   
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'Apartement', component:ApartmentsComponentComponent},
   { path:'Appartement' , component:AddResidenceComponentComponent},
   { path: 'add-residence/:id', component:AddResidenceComponentComponent} ,
+  { path: 'add-apartment', component: AddApartmentComponentComponent },
   { path: '**', component: NotFoundComponentComponent } 
 ];
 

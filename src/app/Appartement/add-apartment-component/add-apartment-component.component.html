@@ -1,1 +1,50 @@
-<p>add-apartment-component works!</p>
+<form [formGroup]="addapartement" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Apartment Number:</label>
+      <input formControlName="apartNum" type="text" />
+      <small *ngIf="addapartement.get('apartNum')?.invalid &&addapartement.get('apartNum')?.touched">
+        Apartment Number is required and must be a number.
+      </small>
+    </div>
+    <div>
+      <label>Floor Number:</label>
+      <input formControlName="floorNum" type="text" />
+      <small *ngIf="addapartement.get('floorNum')?.invalid && addapartement.get('floorNum')?.touched">
+        Floor Number is required and must be a number.
+      </small>
+    </div>
+    <div>
+      <label>Surface:</label>
+      <input formControlName="surface" type="text" />
+      <small *ngIf="addapartement.get('surface')?.invalid && addapartement.get('surface')?.touched">
+        Surface is required.
+      </small>
+    </div>
+    <div>
+      <label>Terrace:</label>
+      <input formControlName="terrace" type="checkbox" />
+    </div>
+    <div>
+      <label>Surface Terrace:</label>
+      <input formControlName="surfaceterrace" type="text" />
+      <small *ngIf="addapartement.get('surfaceterrace')?.invalid && addapartement.get('surfaceterrace')?.touched">
+        Surface Terrace is required if Terrace is selected.
+      </small>
+    </div>
+    <div>
+      <label>Category:</label>
+      <input formControlName="category" type="text" />
+      <small *ngIf="addapartement.get('category')?.invalid && addapartement.get('category')?.touched">
+        Category is required.
+      </small>
+    </div>
+    <div>
+      <label>Residence ID:</label>
+      <input formControlName="ResidenceId" type="text" />
+      <small *ngIf="addapartement.get('ResidenceId')?.invalid && addapartement.get('ResidenceId')?.touched">
+        Residence ID is required.
+      </small>
+    </div>
+    <button type="submit" [disabled]="addapartement.invalid">Add Apartment</button>
+  </form>
+  
