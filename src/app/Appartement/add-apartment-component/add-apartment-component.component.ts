@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Appartment } from 'src/app/Core/Models/appartement';
+import { Residence } from 'src/app/Core/Models/residence';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +10,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddApartmentComponentComponent {
   addapartement:FormGroup;
+  newApart: Appartment = {  // Déclaration de la propriété newApart
+    apartNum: 0 ,
+    floorNum: 0,
+    surface: 0,
+    terrace: true,
+    surfaceterrace: 0,
+    category: '',
+    ResidenceId: 0
+  };
+  residences:Residence[]=[
+    {id:1,"name": "El fel","address":"Borj Cedria",
+    "image":"../../assets/images/R1.jpg", status: "Disponible"},
+    {id:2,"name": "El yasmine",
+    "address":"Ezzahra","image":"../../assets/images/R2.jpeg", status:
+    "Disponible" },
+    {id:3,"name": "El Arij",
+    "address":"Rades","image":"../../assets/images/R3.jpg", status:
+    "Vendu"},
+    {id:4,"name": "El Anber","address":"inconnu",
+    "image":"../../assets/images/R4.jpg", status: "En Construction"}
+    ];
+
   constructor (private fb:FormBuilder){
     this.addapartement=this.fb.group({
       apartNum: [null, [Validators.required, Validators.pattern('^[0-9]*$')]], // Numéro d'appartement (chiffres uniquement)
@@ -35,5 +59,19 @@ export class AddApartmentComponentComponent {
       const newApartment = this.addapartement.value;
       console.log('Nouvel appartement :', newApartment);
   } }
+  onAdd() {
+    if (this.addapartement.valid) {
+      const newApart = this.addapartement.value;
+
+      console.log(newApart);
+    }
+  }
+  onReset() {
+    this.addapartement.reset({
+      terrace: 'yes',
+      category: 'S+1'
+    });
+  }
+
   
 }
