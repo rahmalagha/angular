@@ -7,19 +7,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-residence-component.component.css']
 })
 export class AddResidenceComponentComponent {
-  isUpdating: boolean = false;
+  // isUpdating: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  // constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
     
-    this.route.paramMap.subscribe(params => {
-      if (params.has('id')) {
-        this.isUpdating = true;  
-      }
-    });
+  //   this.route.paramMap.subscribe(params => {
+  //     if (params.has('id')) {
+  //       this.isUpdating = true;  
+  //     }
+  //   });
  
 
 
-  }
+  // }
 }

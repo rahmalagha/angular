@@ -7,31 +7,31 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./residence-details-component.component.css']
 })
 export class ResidenceDetailsComponentComponent {
-  residence: any;
-  residences = [
-    { id: 0, name: 'Résidence A', details: 'Détails sur Résidence A' },
-    { id: 1, name: 'Résidence B', details: 'Détails sur Résidence B' },
-    { id: 2, name: 'Résidence C', details: 'Détails sur Résidence C' }
-  ];
-  router: any;
-  route: any;
+  // residence: any;
+  // residences = [
+  //   { id: 0, name: 'Résidence A', details: 'Détails sur Résidence A' },
+  //   { id: 1, name: 'Résidence B', details: 'Détails sur Résidence B' },
+  //   { id: 2, name: 'Résidence C', details: 'Détails sur Résidence C' }
+  // ];
+  // router: any;
+  // route: any;
 
-  ngOnInit(): void {
-    this.loadResidence();
-  }
+  // ngOnInit(): void {
+  //   this.loadResidence();
+  // }
 
-  loadResidence(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!; 
-    this.residence = this.residences.find(r => r.id === id); 
-  }
+  // loadResidence(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id')!; 
+  //   this.residence = this.residences.find(r => r.id === id); 
+  // }
 
-  nextResidence(): void {
-    const currentId = +this.route.snapshot.paramMap.get('id')!;
-    const nextId = (currentId + 1) % this.residences.length; 
-    this.router.navigate(['/residence-details', nextId]).then(() => {
-      this.loadResidence();
-    });
-  }
+  // nextResidence(): void {
+  //   const currentId = +this.route.snapshot.paramMap.get('id')!;
+  //   const nextId = (currentId + 1) % this.residences.length; 
+  //   this.router.navigate(['/residence-details', nextId]).then(() => {
+  //     this.loadResidence();
+  //   });
+  // }
   
  
 }
